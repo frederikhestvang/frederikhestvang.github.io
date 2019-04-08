@@ -1,9 +1,10 @@
 ---
+title: New ImageNET SOTA
 layout: post
-title: Syntax Highlighting Post
-excerpt: "Demo post displaying the various ways of highlighting code in Markdown."
-categories: [code]
-modified: 2014-09-14
+excerpt: Next level results on classic DL tasks
+categories:
+- code
+modified: '2014-09-14'
 comments: true
 ---
 
