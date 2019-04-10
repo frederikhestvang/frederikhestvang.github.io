@@ -32,9 +32,6 @@ kramdown:
 # Site Owner configuration
 ####################################
 #
-#google:
-#  tag_manager:
-#    container_id: GTM-PP8J8TR
 
 owner:
   name: fhestvang
@@ -72,4 +69,7 @@ owner:
     - jekyll-admin
 
 
+google:
+  tag_manager:
+    container_id: GTM-PP8J8TR
 
