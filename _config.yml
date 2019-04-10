@@ -32,16 +32,18 @@ kramdown:
 # Site Owner configuration
 ####################################
 #
-
 owner:
   name: fhestvang
   avatar: #leonids-logo.png
   job: "ml/ai "
   bio: "Feel free to reach out"
   email: "frederikhestvang@gmail.com"
-  disqus-shortname: "frederikhestvang"
+  disqus-shortname:
   twitter: "fhestvang"
   facebook: #username
+  google:
+    tag_manager:
+      container_id: "GTM-PP8J8TR"
   bing-verify:
   github: "frederikhestvang"
   gitlab: #username
@@ -68,8 +70,4 @@ owner:
   plugins: 
     - jekyll-admin
 
-
-google:
-  tag_manager:
-    container_id: GTM-PP8J8TR
 
