@@ -32,10 +32,9 @@ kramdown:
 # Site Owner configuration
 ####################################
 #
-google:
-  tag_manager:
-    container_id: GTM-PP8J8TR
-
+#google:
+#  tag_manager:
+#    container_id: GTM-PP8J8TR
 
 owner:
   name: fhestvang
