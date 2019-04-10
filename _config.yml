@@ -69,6 +69,5 @@ owner:
 
   plugins: 
     - jekyll-admin
-    - jekyll-twitter-plugin
 
 
