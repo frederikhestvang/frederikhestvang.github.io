@@ -16,6 +16,11 @@ Syntax highlighting is a feature that displays source code, in different colors 
 
 Jeremys point in below is brilliant
 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="da" dir="ltr">.<a href="https://twitter.com/LiberalAlliance?ref_src=twsrc%5Etfw">@LiberalAlliance</a> og <a href="https://twitter.com/alternativet_?ref_src=twsrc%5Etfw">@alternativet_</a>&#39;s rejse fra 0 - 7,5 pct.<a href="https://twitter.com/hashtag/dkpol?src=hash&amp;ref_src=twsrc%5Etfw">#dkpol</a> <a href="https://twitter.com/hashtag/polling?src=hash&amp;ref_src=twsrc%5Etfw">#polling</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/Bg3HHjk8SF">pic.twitter.com/Bg3HHjk8SF</a></p>&mdash; Mikkel Krogsholm (@mikkelkrogsholm) <a href="https://twitter.com/mikkelkrogsholm/status/744645313655373824?ref_src=twsrc%5Etfw">June 19, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
 ### Pygments Code Blocks
 
 To modify styling and highlight colors edit `/_sass/_pygments.scss`.
