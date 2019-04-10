@@ -12,6 +12,10 @@ Syntax highlighting is a feature that displays source code, in different colors 
 
 [^1]: [Syntax Highlighting](http://en.wikipedia.org/wiki/Syntax_highlighting)
 
+### Install TWITTER handle
+
+Jeremys point in below is brilliant
+
 ### Pygments Code Blocks
 
 To modify styling and highlight colors edit `/_sass/_pygments.scss`.
