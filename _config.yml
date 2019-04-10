@@ -42,11 +42,8 @@ owner:
   twitter: "fhestvang"
   facebook: #username
   google:
-    plus: #username
-    analytics:
-    verify:
-    ad-client:
-    ad-slot:
+    tag_manager:
+      container_id: "GTM-PP8J8TR"
   bing-verify:
   github: "frederikhestvang"
   gitlab: #username
@@ -72,3 +69,5 @@ owner:
 
   plugins: 
     - jekyll-admin
+
+
