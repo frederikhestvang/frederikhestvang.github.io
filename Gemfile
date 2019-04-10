@@ -3,4 +3,5 @@ gem 'github-pages'
 group :jekyll_plugins do
 	gem "jekyll-admin"
 	gem "jekyll-google-tag-manager"
+	gem "jekyll-twitter-plugin"
 end
