@@ -14,6 +14,7 @@ Syntax highlighting is a feature that displays source code, in different colors 
 
 ### Included TWITTER handle
 
+Jeremyes brilliant comment below will need:
 {% twitter https://twitter.com/jeremyphoward/status/1115646043113181184 %}
 
 ### Pygments Code Blocks
