@@ -13,3 +13,7 @@ This theme supports **link posts**, made famous by John Gruber. To use, just add
 > And this is how a quote looks.
 
 Some [link](http://renyuanz.github.io) can also be shown.
+
+
+
+{% twitter https://twitter.com/jeremyphoward/status/1115646043113181184 %}
