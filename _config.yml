@@ -14,7 +14,7 @@ keywords: ["blog", "jekyll"]
 # Jekyll configuration
 ####################################
 #
-timezone:          Europe/Paris
+timezone:          Europe/Copenhagen
 markdown:          kramdown
 highlighter:       rouge
 excerpt_separator: <!--more-->
@@ -35,7 +35,7 @@ kramdown:
 owner:
   name: fhestvang
   avatar: #leonids-logo.png
-  job: "ml/ai "
+  job: "data enthusiast"
   bio: "Feel free to reach out"
   email: "frederikhestvang@gmail.com"
   disqus-shortname: 'frederikhestvang'
