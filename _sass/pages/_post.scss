@@ -12,8 +12,8 @@
     padding: 50px 30px 0;
   }
   @include media-query($medium-screen) {
-    height: 100vh;
-    overflow-y: scroll;
+    height: 10vh;
+    /*CHANGE WHEN VERTICAL: overflow-y: scroll;*/
     position: initial;
     top: 0;
   }
