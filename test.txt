@@ -1,0 +1,462 @@
+diff --git a/.DS_Store b/.DS_Store
+new file mode 100644
+index 0000000..9cece39
+Binary files /dev/null and b/.DS_Store differ
+diff --git a/Gemfile b/Gemfile
+index 91ceacd..33a1dd2 100644
+--- a/Gemfile
++++ b/Gemfile
+@@ -1,2 +1,7 @@
+ source 'https://rubygems.org'
+-gem 'github-pages', group: :jekyll_plugins
+\ No newline at end of file
++gem 'github-pages'
++group :jekyll_plugins do
++	gem "jekyll-admin"
++	gem "jekyll-google-tag-manager"
++	gem "jekyll-twitter-plugin"
++end
+diff --git a/_config.yml b/_config.yml
+index 3d20669..9fb961f 100755
+--- a/_config.yml
++++ b/_config.yml
+@@ -5,7 +5,7 @@
+ #
+ title: fhestvang 
+ email: frederikhestvang@gmail.com
+-description: Website of Frderik Hestvang 
++description: Website of Frederik Hestvang 
+ url: //frederikhestvang.github.io
+ keywords: ["blog", "jekyll"]
+ 
+@@ -14,7 +14,7 @@ keywords: ["blog", "jekyll"]
+ # Jekyll configuration
+ ####################################
+ #
+-timezone:          Europe/Paris
++timezone:          Europe/Copenhagen
+ markdown:          kramdown
+ highlighter:       rouge
+ excerpt_separator: <!--more-->
+@@ -34,24 +34,21 @@ kramdown:
+ #
+ owner:
+   name: fhestvang
+-  #avatar: leonids-logo.png
+-  job: "ml/ai "
++  avatar: #leonids-logo.png
++  job: "data enthusiast"
+   bio: "Feel free to reach out"
+   email: "frederikhestvang@gmail.com"
+-  disqus-shortname:
++  disqus-shortname: 'frederikhestvang'
+   twitter: "fhestvang"
+   facebook: #username
+   google:
+-    plus: #username
+-    analytics:
+-    verify:
+-    ad-client:
+-    ad-slot:
++    tag_manager:
++      container_id: "GTM-PP8J8TR"
+   bing-verify:
+-  github: "fhestvang"
++  github: "frederikhestvang"
+   gitlab: #username
+   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
+-  linkedin: "frederikhestvang"
++  linkedin: "frederik-hye-hestvang-121479106"
+   skype: #username
+   xing: #username
+   instagram: #username
+@@ -69,3 +66,9 @@ owner:
+   codepen: #username
+   reddit: #username
+   telegram: #username
++
++  plugins: 
++    - jekyll-admin
++    - jekyll-twitter-plugin
++
++
+diff --git a/_data/index/careers.yml b/_data/index/careers.yml
+index d2d8639..f25bd40 100644
+--- a/_data/index/careers.yml
++++ b/_data/index/careers.yml
+@@ -1,16 +1,11 @@
+ # careers section data
+ # if you don't have language feature(language.yml is empty), ignore "i18n" items
+-- name: Google
+-  link: http://www.google.com/
+-  date: July 2017 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+-  job: Programming Internship
++- name: IIH Nordic
++  link: http://www.iihnordic.dk/
++  date: July 2018 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
++  job: Analytics Specialist
+ 
+-- name: Facebook
+-  link: http://www.facebook.com/
+-  date: May 2014 - July 2017
+-  job: Web Assistant
+-
+-- name: SAP
+-  link: https://www.sap.com/
+-  date: 2010 - 2014
+-  job: Software Developer
+\ No newline at end of file
++- name: Densou
++  link: https://www.densou.com/
++  date: 2017 - 2018
++  job: Data Scientist 
+\ No newline at end of file
+diff --git a/_data/index/education.yml b/_data/index/education.yml
+index 8d93733..d751f0c 100644
+--- a/_data/index/education.yml
++++ b/_data/index/education.yml
+@@ -1,8 +1,4 @@
+-- name: Massachusets Instutite of Technology
+-  link: http://web.mit.edu/
+-  date: 2011 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
+-  descr: <br> (expected graduation in 2019)
+-
+-- name: Harvard
+-  link: http://www.harvard.edu/
+-  date: 2007 - 2011
+\ No newline at end of file
++- name: University of Copenhagen
++  link: http://ku.dk.edu/
++  date: 2013 - <i class="fa fa-clock-o" aria-hidden="true" title="Until Now"></i>
++  descr: <br> (expected graduation in 2019)
+\ No newline at end of file
+diff --git a/_data/index/skills.yml b/_data/index/skills.yml
+index ca5c3b4..b7941b4 100644
+--- a/_data/index/skills.yml
++++ b/_data/index/skills.yml
+@@ -2,5 +2,5 @@
+ 
+ label: Ability
+ id : cs
+-aspects: Motivation, GitHub, Java, HTML/CSS, Docker, Python
++aspects: Econometrics, git, JavaScript, R, Swift, Python
+ percentage: 100, 65, 70, 60, 60, 55
+\ No newline at end of file
+diff --git a/_includes/footer.html b/_includes/footer.html
+index c405d6e..79f5266 100755
+--- a/_includes/footer.html
++++ b/_includes/footer.html
+@@ -1,3 +1,3 @@
+ <footer>
+-  &copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
++  &copy; {{ site.time | date: '%Y' }} {{ site.owner.name }}
+ </footer>
+diff --git a/_includes/head.html b/_includes/head.html
+index cf8ffad..8834144 100755
+--- a/_includes/head.html
++++ b/_includes/head.html
+@@ -53,4 +53,13 @@
+   <link rel="shortcut icon" href="{{ site.url }}/favicon.ico">
+   <!-- 32x32 -->
+   <link rel="shortcut icon" href="{{ site.url }}/favicon.png">
++
++  <!-- Google Tag Manager -->
++  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
++  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
++  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
++  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
++  })(window,document,'script','dataLayer','GTM-PP8J8TR');</script>
++  <!-- End Google Tag Manager -->
++  
+ </head>
+diff --git a/_includes/sidebar.html b/_includes/sidebar.html
+index d209a44..bcc3995 100755
+--- a/_includes/sidebar.html
++++ b/_includes/sidebar.html
+@@ -19,6 +19,9 @@
+         <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>
+       </li>
+       {% endif %} {% endfor %}
++      <li class="nav-item">
++        <a href="https://api.frederikhestvang.dk/v1">api</a>
++      </li>
+     </ul>
+   </nav>
+   {% include social-links.html %}
+diff --git a/_layouts/default.html b/_layouts/default.html
+index f9899a8..edd26e0 100755
+--- a/_layouts/default.html
++++ b/_layouts/default.html
+@@ -11,7 +11,7 @@
+       </div>
+     </div>
+     <div class="col s12 m9">
+-      <div class="post-listing">
++      <div id="post-listing" class="post-listing">
+         {{ content }}
+         {% include footer.html %}
+       </div>
+diff --git a/_posts/2013-08-12-sample-link-post.md b/_posts/2013-08-12-sample-link-post.md
+index 32a542b..7b13e7f 100644
+--- a/_posts/2013-08-12-sample-link-post.md
++++ b/_posts/2013-08-12-sample-link-post.md
+@@ -5,6 +5,7 @@ excerpt: "Try click on the link icon."
+ categories: [link post]
+ link: http://renyuanz.github.io
+ share: true
++comments: true
+ ---
+ 
+ This theme supports **link posts**, made famous by John Gruber. To use, just add `link: http://url-you-want-linked` to the post's YAML front matter and you're done.
+diff --git a/_posts/2015-08-18-welcome-to-jekyll.md b/_posts/2015-08-18-welcome-to-jekyll.md
+deleted file mode 100644
+index 0c818b6..0000000
+--- a/_posts/2015-08-18-welcome-to-jekyll.md
++++ /dev/null
+@@ -1,28 +0,0 @@
+----
+-layout: post
+-title:  "Welcome to Jekyll!"
+-date:   2015-08-18 15:07:19
+-categories: [tutorial]
+-comments: true
+----
+-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+-
+-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+-
+-<!--more-->
+-
+-Jekyll also offers powerful support for code snippets:
+-
+-{% highlight ruby %}
+-def print_hi(name)
+-  puts "Hi, #{name}"
+-end
+-print_hi('Tom')
+-#=> prints 'Hi, Tom' to STDOUT.
+-{% endhighlight %}
+-
+-Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
+-
+-[jekyll]:      http://jekyllrb.com
+-[jekyll-gh]:   https://github.com/jekyll/jekyll
+-[jekyll-help]: https://github.com/jekyll/jekyll-help
+diff --git a/_posts/2013-08-16-code-highlighting-post.md b/_posts/2019-04-01-code-highlighting-post.md
+similarity index 77%
+rename from _posts/2013-08-16-code-highlighting-post.md
+rename to _posts/2019-04-01-code-highlighting-post.md
+index 4f5df7a..52cc5f8 100644
+--- a/_posts/2013-08-16-code-highlighting-post.md
++++ b/_posts/2019-04-01-code-highlighting-post.md
+@@ -1,9 +1,10 @@
+ ---
++title: New ImageNET SOTA
+ layout: post
+-title: Syntax Highlighting Post
+-excerpt: "Demo post displaying the various ways of highlighting code in Markdown."
+-categories: [code]
+-modified: 2014-09-14
++excerpt: Next level results on classic DL tasks
++categories:
++- code
++modified: '2014-09-14'
+ comments: true
+ ---
+ 
+@@ -11,6 +12,15 @@ Syntax highlighting is a feature that displays source code, in different colors
+ 
+ [^1]: [Syntax Highlighting](http://en.wikipedia.org/wiki/Syntax_highlighting)
+ 
++### Install TWITTER handle
++
++Jeremys point in below is brilliant
++
++<blockquote class="twitter-tweet" data-lang="en"><p lang="da" dir="ltr">.<a href="https://twitter.com/LiberalAlliance?ref_src=twsrc%5Etfw">@LiberalAlliance</a> og <a href="https://twitter.com/alternativet_?ref_src=twsrc%5Etfw">@alternativet_</a>&#39;s rejse fra 0 - 7,5 pct.<a href="https://twitter.com/hashtag/dkpol?src=hash&amp;ref_src=twsrc%5Etfw">#dkpol</a> <a href="https://twitter.com/hashtag/polling?src=hash&amp;ref_src=twsrc%5Etfw">#polling</a> <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/Bg3HHjk8SF">pic.twitter.com/Bg3HHjk8SF</a></p>&mdash; Mikkel Krogsholm (@mikkelkrogsholm) <a href="https://twitter.com/mikkelkrogsholm/status/744645313655373824?ref_src=twsrc%5Etfw">June 19, 2016</a></blockquote>
++<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
++
++
++
+ ### Pygments Code Blocks
+ 
+ To modify styling and highlight colors edit `/_sass/_pygments.scss`.
+@@ -112,4 +122,4 @@ module Jekyll
+     end
+   end
+ end
+-~~~
++~~~
+\ No newline at end of file
+diff --git a/_sass/components/_global.scss b/_sass/components/_global.scss
+index 9f452e2..a0e52d7 100755
+--- a/_sass/components/_global.scss
++++ b/_sass/components/_global.scss
+@@ -35,6 +35,7 @@ td {
+ }
+ .table-middle {
+   vertical-align: middle;
++  horizontal-align: middle;
+ }
+ .table-bottom {
+   vertical-align: bottom;
+diff --git a/_sass/components/_variables.scss b/_sass/components/_variables.scss
+index c046274..857c03f 100755
+--- a/_sass/components/_variables.scss
++++ b/_sass/components/_variables.scss
+@@ -56,7 +56,7 @@ $background-color: #f5f5f5;
+ 
+ $white:            #fff;
+ $primary:          #42b983;
+-$secondary:        #8d7edc;
++$secondary:        #8e8e8e;
+ $success:          #65e892;
+ $danger:           #f83e4b;
+ $warning:          #F5A623;
+diff --git a/_sass/pages/_layout.scss b/_sass/pages/_layout.scss
+index ab3013b..a14021c 100755
+--- a/_sass/pages/_layout.scss
++++ b/_sass/pages/_layout.scss
+@@ -31,7 +31,7 @@
+   }
+   .author_name {
+     display: block;
+-    color: #F36170;
++    color: #000000;
+     font-size: 1.75em;
+     text-transform: lowercase;
+   }
+@@ -48,7 +48,7 @@
+     display: block;
+   }
+   @include media-query($medium-screen) {
+-    text-align: right;
++    text-align: center;
+     margin: 0 auto;
+     padding: 0 0px 80px;
+   }
+diff --git a/_sass/pages/_post.scss b/_sass/pages/_post.scss
+index 1375236..4d69e2a 100755
+--- a/_sass/pages/_post.scss
++++ b/_sass/pages/_post.scss
+@@ -12,8 +12,8 @@
+     padding: 50px 30px 0;
+   }
+   @include media-query($medium-screen) {
+-    height: 100vh;
+-    overflow-y: scroll;
++    height: 10vh;
++    /*CHANGE WHEN VERTICAL: overflow-y: scroll;*/
+     position: initial;
+     top: 0;
+   }
+diff --git a/added_feature-js b/added_feature-js
+new file mode 100644
+index 0000000..e69de29
+diff --git a/alllove.txt b/alllove.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/favicon.ico b/favicon.ico
+index 73b1bfa..e69de29 100644
+Binary files a/favicon.ico and b/favicon.ico differ
+diff --git a/favicon.png b/favicon.png
+index cc61b12..e69de29 100644
+Binary files a/favicon.png and b/favicon.png differ
+diff --git a/favicon2.png b/favicon2.png
+new file mode 100644
+index 0000000..cc61b12
+Binary files /dev/null and b/favicon2.png differ
+diff --git a/fonts/.DS_Store b/fonts/.DS_Store
+new file mode 100644
+index 0000000..5008ddf
+Binary files /dev/null and b/fonts/.DS_Store differ
+diff --git a/git_loglive b/git_loglive
+new file mode 100644
+index 0000000..318a9bc
+--- /dev/null
++++ b/git_loglive
+@@ -0,0 +1,8 @@
++#!/bin/bash
++
++while :
++do
++    clear
++    git --no-pager log `git rev-parse HEAD` -n $* --graph --pretty=oneline --abbrev-commit --decorate
++    sleep 1
++done
+diff --git a/img/leonids-logo.png b/img/leonids-logo2.png
+similarity index 100%
+rename from img/leonids-logo.png
+rename to img/leonids-logo2.png
+diff --git a/index.html b/index.html
+index ecc2d22..b2e2146 100755
+--- a/index.html
++++ b/index.html
+@@ -1,4 +1,4 @@
+ ---
+-layout: post_listing
++layout: default
+ permalink: /
+ ---
+diff --git a/js/main.js b/js/main.js
+index 518cb7f..4a9025a 100755
+--- a/js/main.js
++++ b/js/main.js
+@@ -1,2 +1,3 @@
+ $(document).ready(function() {
++
+ });
+diff --git a/ll.sh b/ll.sh
+new file mode 100644
+index 0000000..6a65856
+--- /dev/null
++++ b/ll.sh
+@@ -0,0 +1,19 @@
++watchit() {
++    HOME=$(tput cup 0 0)
++    ED=$(tput ed)
++    EL=$(tput el)
++    ROWS=$(tput lines)
++    COLS=$(tput cols)
++    printf '%s%s' "$HOME" "$ED"
++    while true
++    do
++        CMD="$@"
++        ${SHELL:=sh} -c "$CMD" | head -n $ROWS | while IFS= read LINE; do
++            printf '%-*.*s%s\n' $COLS $COLS "$LINE" "$EL"
++        done
++        printf '%s%s' "$ED" "$HOME"
++        sleep 1
++    done
++}
++
++watchit top -b -n 1
+diff --git a/loglive.sh b/loglive.sh
+new file mode 100644
+index 0000000..318a9bc
+--- /dev/null
++++ b/loglive.sh
+@@ -0,0 +1,8 @@
++#!/bin/bash
++
++while :
++do
++    clear
++    git --no-pager log `git rev-parse HEAD` -n $* --graph --pretty=oneline --abbrev-commit --decorate
++    sleep 1
++done
+diff --git a/new_feature.js b/new_feature.js
+new file mode 100644
+index 0000000..e69de29
+diff --git a/tags.html b/tags.html
+index 3351c9d..21ea7f3 100755
+--- a/tags.html
++++ b/tags.html
+@@ -22,7 +22,7 @@ permalink: /tags/
+     <h5 class="tag-group-title" id="{{ tag_name | slugize }}">{{ tag_name }}</h5>
+     {% for post in site.tags[tag_name] %}
+     <article class="tag-item">
+-      <a class="tag-item-title" href="{{ site.url }}{{ post.url }}">{{post.title}}</a>
++      <a class="tag-item-title" href="{{ site.url }}{{ post.url }}/">{{post.title}}</a>
+     </article>
+     {% endfor %}
+   </div>
