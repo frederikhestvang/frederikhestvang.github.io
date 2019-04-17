@@ -13,7 +13,6 @@
   }
   @include media-query($medium-screen) {
     height: 10vh;
-    overflow-y: scroll;
     position: initial;
     top: 0;
   }
