@@ -90,7 +90,7 @@ To modify styling and highlight colors edit `/_sass/_coderay.scss`. Line numbers
 #container {
     float: left;
     margin: 0 -240px 0 0;
-    width: 100%;
+    width: 100%;;
 }
 ~~~
 
